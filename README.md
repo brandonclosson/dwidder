@@ -1,3 +1,2 @@
-#Ruby on Rails Tutorial: Sample Application
-
-Brandon Closson
+Dwidder by Brandon Closson
+Twitter Clone built using Michael Hartl's Ruby on Rails Tutorial
