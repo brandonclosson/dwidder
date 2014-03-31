@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
-  let(:basic_title) { 'Dwidder | '}
+  let(:basic_title) { 'Dwidder'}
   
   describe "Home page" do
 
@@ -11,9 +11,14 @@ describe "StaticPages" do
       expect(page).to have_content('Dwidder')
     end  
 
-    it "should have the right title" do
+    it "should have the base title" do
       visit '/static_pages/home'
-      expect(page).to have_title("#{basic_title}Home")
+      expect(page).to have_title("#{basic_title}")
+    end
+
+    it "should not have a custom title" do
+      visit '/static_pages/home'
+      expect(page).not_to have_title('| Home')
     end
   end
 
@@ -26,7 +31,7 @@ describe "StaticPages" do
 
     it "should have the right title" do
       visit '/static_pages/help'
-      expect(page).to have_title("#{basic_title}Help")
+      expect(page).to have_title("#{basic_title} | Help")
     end
   end
 
@@ -39,7 +44,7 @@ describe "StaticPages" do
 
     it "should have the right title" do
       visit '/static_pages/about'
-      expect(page).to have_title("#{basic_title}About Us")
+      expect(page).to have_title("#{basic_title} | About Us")
     end
   end
 
@@ -52,7 +57,7 @@ describe "StaticPages" do
 
     it "should have the right title" do
       visit '/static_pages/contact'
-      expect(page).to have_title("#{basic_title}Contact Us")
+      expect(page).to have_title("#{basic_title} | Contact Us")
     end
   end
 end
